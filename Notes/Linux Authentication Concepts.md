@@ -13,6 +13,56 @@
 
 ### PAM Configuration Files: pam.conf and pam.d
 
+#### Where PAM reads confriugation from:
+
+- PAM reads either:
+  - `/etc/pam.conf` (single file), **or**
+  - individual service files in `/etc/pam.d/` (preferred).
+ - If `/etc/pam.d/` exists, PAM **ignores /etc/pam.conf**.
+
+###### Vendor config locations (precedence)
+
+- Vendor-supplied defaults may exist in:
+  - `/usr/lib/pam.d/`
+  - `/usr/share/pam/pam.d/`
+- Files in `/etc/pam.d/` **override** vendor files of the same name.
+
+***
+
+###### What these files contain
+
+- PAM config files contain **rules** that define:
+  1. **Which module** runs (e.g., `pam_unix.so`, `pam_sss.so`, etc.)
+  2. **Which stage** it runs in (`auth`, `account`, `password`, `session`)
+  3. **What to do** if it succeeds/fails (the _control_ field).
+
+***
+
+###### Rule syntax
+
+- **In /etc/pam.conf**
+
+Each rule is:
+
+```
+service type control module-path module-arguments
+```
+
+- **In /etc/pam.d/<service>**
+
+Same idea, but **no "service" column** (the filename _is_ the service name):
+
+```
+type control module-path module-arguments
+```
+
+**Example concept:** `/etc/pam.d/login` contains rules for the `login` service.
+
+***
+
+**Service field**
+- The **service name** is usually the application name (e.g., `login`, `su`).
+- There is a special service-name `**other**` used for default rules.
 
 Phase 1 (1–2 days): Local authentication basics
 
