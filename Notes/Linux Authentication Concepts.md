@@ -86,6 +86,8 @@ These are the four stages of the authentication lifecycle:
 
 > auth = verify, account = allowed, password = change, session = setup/teardown
 
+***
+
 ##### PAM runs multiple rules in order
 
 - A major feature of PAM is that rules can be **stacked** (multiple modules combined for one service/type).
@@ -96,11 +98,38 @@ This is how you get patterns like:
   - password + MFA
   - deny/allow rules + logging rules
 
+***
+
 ###### Control Field (how failures/success are handled)
 
 - The **control** field tells PAM how to interpret the module's result.
 
+**Simple (common) control keywords**
 
+- **required**
+  
+  - If it fails → overall failure **eventually**, but PAM still runs the rest of the stack first.
+ 
+- **requisite**
+  
+  - Like required, but **fails immediately** and returns to the application/upper stack.
+ 
+- **sufficient**
+  
+  - If it succeeds and no earlier required failed → **success immediately**, stop processing more modules.
+  - If it fails → ignore and continue.
+ 
+- **optional**
+  
+  - Only matters if it's the **only** module in that service+type stack.
+ 
+- **include**
+  
+  - Include all lines of a given type from another config file (named as argument).
+ 
+- **substack**
+  
+  - Like `include`, but with different "jump/terminate" behavior: it won't skip the rest of the _entire_ stack, only the substack is treated specially.
 
 
 
