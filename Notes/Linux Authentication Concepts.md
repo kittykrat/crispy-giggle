@@ -20,7 +20,7 @@
   - individual service files in `/etc/pam.d/` (preferred).
  - If `/etc/pam.d/` exists, PAM **ignores /etc/pam.conf**.
 
-###### Vendor config locations (precedence)
+#### Vendor config locations (precedence)
 
 - Vendor-supplied defaults may exist in:
   - `/usr/lib/pam.d/`
@@ -29,7 +29,7 @@
 
 ***
 
-###### What these files contain
+#### What these files contain
 
 - PAM config files contain **rules** that define:
   1. **Which module** runs (e.g., `pam_unix.so`, `pam_sss.so`, etc.)
