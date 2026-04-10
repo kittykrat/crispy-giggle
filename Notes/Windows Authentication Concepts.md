@@ -11,10 +11,19 @@
 - NTLM authentication centers on the idea
   > "Prove you know the password" **without** sending it in cleartext.
 
-- #### Simplified flow
+#### Simplified flow
+
   - ```
     Client → Server: "I'm user X"
     Server → Client: Challenge (random data)
     Client → Server: Response (computed from challenge + secret derived from password)
     Server → DC or local SAM: Validate response and issue/deny token.
     ``` 
+
+#### What the resource server must do (domain vs local)
+
+- When NTLM is used, the **resource server** has to validate identity by doing **one** of these:
+  - **Domain account:** contact the **domain authentication service (DC)** for validation.
+  - **Local account:** check the **local account database** (local machine).
+ 
+#### Where NTLM is still used today (common cases)
