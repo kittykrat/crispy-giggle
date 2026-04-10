@@ -27,3 +27,13 @@
   - **Local account:** check the **local account database** (local machine).
  
 #### Where NTLM is still used today (common cases)
+
+Even though it's legacy, NTLM remains in use because of compatibility and non-domain scenarios:
+- **Workgroup systems** (no AD / no Kerberos) require NTLM for Windows authentication.
+- **Local logons** on non-domain controllers still use NTLM mechanisms.
+- In an AD environment, **Kerberos v5 is preferred**, but some Microsoft/non-Microsoft apps still fall back to NTLM.
+
+#### Why reducing NTLM requires discovery first
+
+- Microsoft's guidance emphasizes: you can't reduce NTLM without knowing **which apps/services still depend on it,** and then applying strategies to move to other protocols (typically Kerberos).
+- To help with this, Microsoft has added **tools/settings to discover NTLM usage** so you can selectively restrict it.
