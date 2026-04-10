@@ -168,10 +168,10 @@ OpenLDAP admin guide for directory fundamentals [openldap.org]
 FreeIPA docs if your environment is Linux-domain-centric [github.com], [freeipa.org]
 
 
-### Cheat Sheet
-
-- **PAM** = authentication policy engine (per-service rules under /etc/pam.d/). [man7.org], [man.archlinux.org]
-- **NSS** = where user/group lookup comes from (files, LDAP, SSSD, etc.)—SSSD often provides the NSS side. [github.com], [sssd.io]
-- **SSSD** = enterprise client for identity/auth (LDAP, Kerberos, FreeIPA, AD) + caching + NSS/PAM integration. [sssd.io], [github.com]
-- **Kerberos** = ticket-based authentication (stronger than sending passwords repeatedly). [docs.redhat.com], [web.mit.edu]
-- **LDAP/OpenLDAP** = directory of identities and attributes; often paired with Kerberos for auth. [openldap.org], [ubuntu.com]
+> ### Cheat Sheet
+>
+> - **PAM** = authentication policy engine (per-service rules under /etc/pam.d/). [man7.org], [man.archlinux.org]
+> - **NSS** = where user/group lookup comes from (files, LDAP, SSSD, etc.)—SSSD often provides the NSS side. [github.com], [sssd.io]
+> - **SSSD** = enterprise client for identity/auth (LDAP, Kerberos, FreeIPA, AD) + caching + NSS/PAM integration. [sssd.io], [github.com]
+> - **Kerberos** = ticket-based authentication (stronger than sending passwords repeatedly). [docs.redhat.com], [web.mit.edu]
+> - **LDAP/OpenLDAP** = directory of identities and attributes; often paired with Kerberos for auth. [openldap.org], [ubuntu.com]
