@@ -63,6 +63,63 @@ type control module-path module-arguments
 **Service field**
 - The **service name** is usually the application name (e.g., `login`, `su`).
 - There is a special service-name `**other**` used for default rules.
+- Only rules matching the current service (or other as fallback) apply.
+
+***
+
+###### The Four PAM "Types" (management groups)
+
+These are the four stages of the authentication lifecycle:
+
+- **auth**
+  - Proves identity ("are you who you say you are?") by prompting for password/OTP/etc.
+  - Can also grant credentials/privileges (e.g., group membership) through credential handling.
+ 
+- **account**
+  - Non-password checks ("are you allowed to log in?") like time restrictions, resource limits, login location constraints.
+ 
+- **password**
+  - Handles **updating** authentication tokens (changing passwords, enforcing password policy).
+ 
+- **session**
+  - Actions **before/after** access is granted: logging, mounting home dirs, setting up environment, etc.
+
+> auth = verify, account = allowed, password = change, session = setup/teardown
+
+##### PAM runs multiple rules in order
+
+- A major feature of PAM is that rules can be **stacked** (multiple modules combined for one service/type).
+
+This is how you get patterns like:
+
+  - local users first, then LDAP/SSSD
+  - password + MFA
+  - deny/allow rules + logging rules
+
+###### Control Field (how failures/success are handled)
+
+- The **control** field tells PAM how to interpret the module's result.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Phase 1 (1–2 days): Local authentication basics
 
