@@ -1,6 +1,6 @@
 # Linux Authentication Concepts
 
-#### PAM (Pluggable Authentication Modules)
+## PAM (Pluggable Authentication Modules)
 
 - **PAM (Pluggable Authentication Modules)** is a framework used by "PAM-aware" applications (like `login`, `su`, `sshd`, `sudo`) to perform authentication and related account/session tasks.
 - When a PAM-aware app starts, it attaches to the **PAM API** and reads PAM configuration to decide **which modules to run** and **how to handle success/failure.**
@@ -11,16 +11,16 @@
 
 ***
 
-### PAM Configuration Files: pam.conf and pam.d
+## PAM Configuration Files: pam.conf and pam.d
 
-#### Where PAM reads confriugation from:
+### Where PAM reads confriugation from:
 
 - PAM reads either:
   - `/etc/pam.conf` (single file), **or**
   - individual service files in `/etc/pam.d/` (preferred).
  - If `/etc/pam.d/` exists, PAM **ignores /etc/pam.conf**.
 
-#### Vendor config locations (precedence)
+### Vendor config locations (precedence)
 
 - Vendor-supplied defaults may exist in:
   - `/usr/lib/pam.d/`
@@ -29,7 +29,7 @@
 
 ***
 
-#### What these files contain
+### What these files contain
 
 - PAM config files contain **rules** that define:
   1. **Which module** runs (e.g., `pam_unix.so`, `pam_sss.so`, etc.)
@@ -38,7 +38,7 @@
 
 ***
 
-#### Rule syntax
+### Rule syntax
 
 - **In /etc/pam.conf**
 
@@ -67,7 +67,7 @@ type control module-path module-arguments
 
 ***
 
-#### The Four PAM "Types" (management groups)
+### The Four PAM "Types" (management groups)
 
 These are the four stages of the authentication lifecycle:
 
@@ -88,7 +88,7 @@ These are the four stages of the authentication lifecycle:
 
 ***
 
-##### PAM runs multiple rules in order
+### PAM runs multiple rules in order
 
 - A major feature of PAM is that rules can be **stacked** (multiple modules combined for one service/type).
 
@@ -100,7 +100,7 @@ This is how you get patterns like:
 
 ***
 
-###### Control Field (how failures/success are handled)
+#### Control Field (how failures/success are handled)
 
 - The **control** field tells PAM how to interpret the module's result.
 
