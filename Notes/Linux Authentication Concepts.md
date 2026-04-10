@@ -132,7 +132,50 @@ This is how you get patterns like:
   - Like `include`, but with different "jump/terminate" behavior: it won't skip the rest of the _entire_ stack, only the substack is treated specially.
 
 
+Advanced control syntax (for precision)
+You can write bracket logic:
+Plain Text[value1=action1 value2=action2 ... default=actionN]Show more lines
 
+valueN is the module return code (e.g., success, auth_err, user_unknown, etc.). [github.com]
+actionN defines what to do (e.g., ignore, bad, die, ok, done, numeric jumps, reset). [github.com]
+
+Equivalent mappings (good to know)
+The man page even shows that required/requisite/sufficient/optional can be represented in bracket form (useful for reading complex PAM configs). [github.com]
+
+Module paths & arguments
+Module path
+
+Can be an absolute path (/…) or relative to default module locations:
+
+/lib/security/ or /lib64/security/ (architecture-dependent). [github.com]
+
+
+
+Module arguments
+
+Space-separated options passed to a module to change its behavior. [github.com]
+If you need spaces inside one argument, you can wrap it in square brackets [...] (and escape ] as \]). [github.com]
+
+
+Logging & errors (important troubleshooting note)
+
+Misformatted lines generally cause PAM to fail authentication (fail-safe) and write an error via syslog. [github.com]
+
+
+One extra detail worth noting
+
+If you prefix a type with - (e.g., -auth), PAM will not log to syslog if a module cannot be loaded because it’s missing—useful when a module is optional/not always installed. [github.com]
+
+
+Quick “How to Read a PAM Line” (Mini Template for Notes)
+When you see a line like:
+Plain Textauth  required  pam_unix.so  try_first_passShow more lines
+Interpret it as:
+
+auth: identity verification stage [github.com]
+required: must succeed (but may continue evaluating other modules before returning failure) [github.com]
+pam_unix.so: module being invoked (from default module paths) [github.com]
+try_first_pass: module option/argument controlling behavior
 
 
 
