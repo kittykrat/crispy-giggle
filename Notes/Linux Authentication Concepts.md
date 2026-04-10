@@ -38,7 +38,7 @@
 
 ***
 
-###### Rule syntax
+##### Rule syntax
 
 - **In /etc/pam.conf**
 
@@ -67,7 +67,7 @@ type control module-path module-arguments
 
 ***
 
-###### The Four PAM "Types" (management groups)
+##### The Four PAM "Types" (management groups)
 
 These are the four stages of the authentication lifecycle:
 
