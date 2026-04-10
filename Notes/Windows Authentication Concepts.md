@@ -11,10 +11,10 @@
 - NTLM authentication centers on the idea
   > "Prove you know the password" **without** sending it in cleartext.
 
-- ##### Simplified flow
-- ```
-  Client → Server: "I'm user X"
-  Server → Client: Challenge (random data)
-  Client → Server: Response (computed from challenge + secret derived from password)
-  Server → DC or local SAM: Validate response and issue/deny token.
-  ``` 
+- #### Simplified flow
+  - ```
+    Client → Server: "I'm user X"
+    Server → Client: Challenge (random data)
+    Client → Server: Response (computed from challenge + secret derived from password)
+    Server → DC or local SAM: Validate response and issue/deny token.
+    ``` 
