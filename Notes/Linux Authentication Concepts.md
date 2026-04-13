@@ -131,6 +131,7 @@ This is how you get patterns like:
   
   - Like `include`, but with different "jump/terminate" behavior: it won't skip the rest of the _entire_ stack, only the substack is treated specially.
 
+***
 
 ### Advanced control syntax
 
@@ -140,14 +141,20 @@ You can write bracket logic:
 [value1=action1 value2=action2 ... default=actionN]
 ```
 
-valueN is the module return code (e.g., success, auth_err, user_unknown, etc.). [github.com]
-actionN defines what to do (e.g., ignore, bad, die, ok, done, numeric jumps, reset). [github.com]
+- valueN is the module return code (e.g., success, auth_err, user_unknown, etc.).
 
-Equivalent mappings (good to know)
-The man page even shows that required/requisite/sufficient/optional can be represented in bracket form (useful for reading complex PAM configs). [github.com]
+- actionN defines what to do (e.g., ignore, bad, die, ok, done, numeric jumps, reset).
 
-Module paths & arguments
-Module path
+***
+
+### Equivalent mappings
+The man page even shows that` required/requisite/sufficient/optional` can be represented in bracket form (useful for reading complex PAM configs)
+
+***
+
+## Module paths & arguments
+
+### Module path
 
 Can be an absolute path (/…) or relative to default module locations:
 
