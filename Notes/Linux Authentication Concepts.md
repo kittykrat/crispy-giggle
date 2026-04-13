@@ -171,18 +171,23 @@ If you need spaces inside one argument, you can wrap it in **square brackets** `
 
 ### One extra detail worth noting
 
-If you prefix a type with - (e.g., -auth), PAM will **not log** to syslog if a module cannot be loaded because it’s missing—useful when a module is optional/not always installed. [github.com]
+If you prefix a type with - (e.g., -auth), PAM will **not log** to syslog if a module cannot be loaded because it’s missing—useful when a module is optional/not always installed.
 
 
-Quick “How to Read a PAM Line” (Mini Template for Notes)
-When you see a line like:
-Plain Textauth  required  pam_unix.so  try_first_passShow more lines
-Interpret it as:
+**Quick “How to Read a PAM Line”**
 
-auth: identity verification stage [github.com]
-required: must succeed (but may continue evaluating other modules before returning failure) [github.com]
-pam_unix.so: module being invoked (from default module paths) [github.com]
-try_first_pass: module option/argument controlling behavior
+- When you see a line like:
+
+  - ```
+  auth  required  pam_unix.so  try_first_passShow more lines
+  ```
+
+- Interpret it as:
+
+  - **auth:** identity verification stage
+  - **required:** must succeed (but may continue evaluating other modules before returning failure)
+  - **pam_unix.so:** module being invoked (from default module paths)
+  - **try_first_pass:** module option/argument controlling behavior
 
 
  
