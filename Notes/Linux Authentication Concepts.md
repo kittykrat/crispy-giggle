@@ -156,16 +156,13 @@ The man page even shows that` required/requisite/sufficient/optional` can be rep
 
 ### Module path
 
-Can be an absolute path (/…) or relative to default module locations:
+- Can be an absolute path (`/…`) or relative to default module locations:
+  -` /lib/security/` or `/lib64/security/` (architecture-dependent).
 
-/lib/security/ or /lib64/security/ (architecture-dependent). [github.com]
+### Module arguments
 
-
-
-Module arguments
-
-Space-separated options passed to a module to change its behavior. [github.com]
-If you need spaces inside one argument, you can wrap it in square brackets [...] (and escape ] as \]). [github.com]
+- Space-separated options passed to a module to change its behavior.
+If you need spaces inside one argument, you can wrap it in **square brackets** `[...]` (and escape `]` as `\]`).
 
 
 Logging & errors (important troubleshooting note)
