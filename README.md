@@ -1,6 +1,6 @@
 # crispy-giggle
 
-Public repository for projects, documentation, and ctfs.
+Public repository for personal projects, capture the flags, and notes.
 
 ## Sub Folders:
 
