@@ -135,20 +135,17 @@ This is how you get patterns like:
 
 ### Advanced control syntax
 
-You can write bracket logic:
+- PAM supports bracketed logic: `[value=action]`
 
-```
-[value1=action1 value2=action2 ... default=actionN]
-```
+- Used mainly in complex or vendor-supplied stacks.
 
-- valueN is the module return code (e.g., success, auth_err, user_unknown, etc.).
-
-- actionN defines what to do (e.g., ignore, bad, die, ok, done, numeric jumps, reset).
+- Not commonly written by admins, but useful to recognize during audits.
 
 ***
 
 ### Equivalent mappings
-The man page even shows that` required/requisite/sufficient/optional` can be represented in bracket form (useful for reading complex PAM configs)
+
+- The simple control flags are shorthand for equivalent bracket syntax; useful when reading complex stacks.
 
 ***
 
