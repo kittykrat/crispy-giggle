@@ -164,15 +164,17 @@ The man page even shows that` required/requisite/sufficient/optional` can be rep
 - Space-separated options passed to a module to change its behavior.
 If you need spaces inside one argument, you can wrap it in **square brackets** `[...]` (and escape `]` as `\]`).
 
+***
 
-Logging & errors (important troubleshooting note)
+### Logging & errors
 
-Misformatted lines generally cause PAM to fail authentication (fail-safe) and write an error via syslog. [github.com]
+- Misformatted lines generally cause PAM to **fail authentication** (fail-safe) and write an error via syslog.
 
+***
 
-One extra detail worth noting
+### One extra detail worth noting
 
-If you prefix a type with - (e.g., -auth), PAM will not log to syslog if a module cannot be loaded because it’s missing—useful when a module is optional/not always installed. [github.com]
+If you prefix a type with - (e.g., -auth), PAM will **not log** to syslog if a module cannot be loaded because it’s missing—useful when a module is optional/not always installed. [github.com]
 
 
 Quick “How to Read a PAM Line” (Mini Template for Notes)
