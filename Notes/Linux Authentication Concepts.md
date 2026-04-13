@@ -132,9 +132,13 @@ This is how you get patterns like:
   - Like `include`, but with different "jump/terminate" behavior: it won't skip the rest of the _entire_ stack, only the substack is treated specially.
 
 
-Advanced control syntax (for precision)
+**Advanced control syntax**
+
 You can write bracket logic:
-Plain Text[value1=action1 value2=action2 ... default=actionN]Show more lines
+
+```
+[value1=action1 value2=action2 ... default=actionN]
+```
 
 valueN is the module return code (e.g., success, auth_err, user_unknown, etc.). [github.com]
 actionN defines what to do (e.g., ignore, bad, die, ok, done, numeric jumps, reset). [github.com]
