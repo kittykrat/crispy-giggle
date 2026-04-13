@@ -100,7 +100,7 @@ This is how you get patterns like:
 
 ***
 
-#### Control Field (how failures/success are handled)
+### Control Field (how failures/success are handled)
 
 - The **control** field tells PAM how to interpret the module's result.
 
@@ -132,7 +132,7 @@ This is how you get patterns like:
   - Like `include`, but with different "jump/terminate" behavior: it won't skip the rest of the _entire_ stack, only the substack is treated specially.
 
 
-#### Advanced control syntax
+### Advanced control syntax
 
 You can write bracket logic:
 
