@@ -18,6 +18,7 @@
 - Attackers may modify PAM configs for persistence or privilege escalation.
 - PAM controls often determine whether logs, lockouts, or restrictions apply.
 
+
 ***
 
 ## PAM Configuration Files: pam.conf and pam.d
@@ -200,6 +201,34 @@ If you prefix a type with - (e.g., -auth), PAM will **not log** to syslog if a m
   - **required:** must succeed (but may continue evaluating other modules before returning failure)
   - **pam_unix.so:** module being invoked (from default module paths)
   - **try_first_pass:** module option/argument controlling behavior
+
+***
+
+## Files to monitor (Incident Response / Detection)
+
+```
+/etc/pam.d/*
+/etc/pam.conf
+/lib/security/*.so
+/lib64/security/*.so
+```
+
+***
+
+## Authentication Logs
+
+- Debian/Ubuntu: `/var/log/auth.log`
+- RHEL/CentOS/Rocky: `/var/log/secure`
+- systemd-based systems: `journalctl (sshd, sudo, login)`
+
+***
+
+## Common PAM security pitfalls
+
+- 'sufficient' modules placed before required controls (can bypass MFA)
+- Missing account checks (auth succeeds but should not be allowed)
+- Vendor PAM updates overridden unintentionally by `/etc/pam.d`
+- Silent failures when '-' prefix suppresses logging.
 
 ***
 
