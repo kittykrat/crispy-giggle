@@ -179,8 +179,8 @@ If you prefix a type with - (e.g., -auth), PAM will **not log** to syslog if a m
 - When you see a line like:
 
   - ```
-  auth  required  pam_unix.so  try_first_passShow more lines
-  ```
+    auth  required  pam_unix.so  try_first_passShow more lines
+    ```
 
 - Interpret it as:
 
