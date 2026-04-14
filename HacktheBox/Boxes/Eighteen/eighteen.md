@@ -44,7 +44,31 @@ PORT     STATE SERVICE  REASON          VERSION
 
 ***
 
+- Visiting the website we see:
 
+<img width="400" alt="{6143BD5F-F05F-49F0-A416-B1DBE926699B}" src="https://github.com/user-attachments/assets/7c91c557-3225-4de9-ba6f-6758b51fd0b2" />
+
+- Taking a look at the page, manually decoding the Flask Cookie
+
+- Running NetExec with MSSQL Priv module which lets us know we can impersonate, switching to mssqlclient
+
+- Impersonating appdev, which can read the financial_planner table
+
+- Converting the PBKDF2 hash to the Django format so we can try to crack it
+
+- Using NXC to run RID BRUTE through MSSQL and get other users to spray the password with
+
+- Using Evil-WinRM to access the box as Adam.Scott then poke at the webserver files, nothing here
+
+- Getting the Windows Patch Level, noticing windows 2025 and searching exploits to find BadSuccessor
+
+- Setting up Chisel so we can tunnel back to our box to run the badsuccessor module with nxc
+
+- Looking at NXC Issues to see the support for BadSuccessor is still a PR, installing the special branch with uv
+
+- Setting our system time to the time on the webserver based upon the Date Header from Curl
+
+- Running BadSuccessor getting the NTLM hash of administrator and using psexec to get on the box
 
 ## Root Flag
 
