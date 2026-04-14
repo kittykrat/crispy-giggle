@@ -40,55 +40,7 @@ PORT     STATE SERVICE  REASON          VERSION
 
 ***
 
-- We look for virtual hosts on our domain using FFuF
 
-```
-ffuf -w /usr/share/seclists/Discovery/Web-Content/common.txt \
-     -u http://10.129.XXX.XXX/ \
-     -H "Host: FUZZ.silentium.htb" \
-     -ac
-```
-
-**Results**:
-
-```
-staging                 [Status: 200, Size: 3142, Words: 789, Lines: 70, Duration: 115ms]
-```
-
-***
-
-- We look for subdomains on our domain using FFuF
-
-```
-ffuf -w /usr/share/seclists/Discovery/Web-Content/common.txt \
-     -u http://silentium.htb/FUZZ \
-     -ac
-```
-
-```
-assets                  [Status: 301, Size: 178, Words: 6, Lines: 8, Duration: 112ms]
-```
-
-- We look for subdomains on the virtual host we found using FFuF
-
-```
-ffuf -w /usr/share/seclists/Discovery/Web-Content/common.txt \
-     -u http://staging.silentium.htb/FUZZ \
-     -ac
-```
-
-```
-assets                  [Status: 301, Size: 156, Words: 6, Lines: 11, Duration: 108ms]
-favicon.ico             [Status: 200, Size: 15406, Words: 99, Lines: 206, Duration: 107ms]
-```
-
-
-***
-
-### Service Enumeration
-
-
-***
 
 ## Root Flag
 
