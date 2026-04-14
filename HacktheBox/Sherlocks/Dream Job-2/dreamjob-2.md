@@ -1,6 +1,6 @@
 # Dream Job-2 
 
-<img width="100" alt="image" src="https://github.com/ty-bradley/HacktheBox/blob/main/Sherlocks/Dream Job-2/Images/djlogo.png" />
+<img width="100" alt="image" src="https://github.com/kittykrat/crispy-giggle/blob/main/HacktheBox/Sherlocks/Dream%20Job-2/Images/djlogo.png" />
 
 ## Threat Intelligence - Very Easy
 
@@ -14,13 +14,13 @@
 
 - `Danger.txt` reads:
 
-<img width="400" alt="image" src="https://github.com/ty-bradley/HacktheBox/blob/main/Sherlocks/Dream Job-2/Images/dj1.png" />
+<img width="400" alt="image" src="https://github.com/kittykrat/crispy-giggle/blob/main/HacktheBox/Sherlocks/Dream%20Job-2/Images/dj1.png" />
 
 With that we unzip the malware `DANGER.zip` with the password `Dvn62WlNrt09`.
 
 - After unzipping, we are greeted with 3 different files:
 
-<img width="400" alt="image" src="https://github.com/ty-bradley/HacktheBox/blob/main/Sherlocks/Dream Job-2/Images/dj2.png" />
+<img width="400" alt="image" src="https://github.com/kittykrat/crispy-giggle/blob/main/HacktheBox/Sherlocks/Dream%20Job-2/Images/dj2.png" />
 
 - `17.dotm`
 - `BAE_HPC_SE.iso`
@@ -61,7 +61,7 @@ Bankshot
 upx -d InternalViewer.exe -o InternalViewer_Unpacked.exe
 ```
 
-<img width="400" alt="image" src="https://github.com/ty-bradley/HacktheBox/blob/main/Sherlocks/Dream Job-2/Images/dj3.png" />
+<img width="400" alt="image" src="https://github.com/kittykrat/crispy-giggle/blob/main/HacktheBox/Sherlocks/Dream%20Job-2/Images/dj3.png" />
 
 - Once we do, the file is no longer obfuscated and we can use `strings` to locate the API used:
 
