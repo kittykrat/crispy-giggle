@@ -1,6 +1,6 @@
 # Vantage
 
-<img width="100" alt="image" src="https://github.com/ty-bradley/HacktheBox/blob/main/Sherlocks/Vantage/Images/vlogo.png" />
+<img width="100" alt="image" src="https://github.com/kittykrat/crispy-giggle/blob/main/HacktheBox/Sherlocks/Vantage/Images/vlogo.png" />
 
 ## DFIR - Very Easy
 
