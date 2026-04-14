@@ -8,6 +8,10 @@
 - [**Root Flag**](https://github.com/kittykrat/HacktheBox/edit/main/Boxes/Eighteen/eighteen.md#root-flag)
 - [**Key Takeaways & Lessons Learned**](https://github.com/kittykrat/HacktheBox/edit/main/Boxes/Eighteen/eighteen.md#key-takeaways--lessons-learned)
 
+## Machine Information:
+
+> As is common in real life Windows penetration tests, you will start the Eighteen box with credentials for the following account: `kevin` / `iNa2we6haRj2gaw!`
+
 ## User Flag
 
 First, we run an Nmap scan on our target IP to identify which TCP ports are open.
