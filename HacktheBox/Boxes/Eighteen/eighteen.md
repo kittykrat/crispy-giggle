@@ -16,7 +16,8 @@ First, we run an Nmap scan on our target IP to identify which TCP ports are open
 
 The results from the scan:
 
-<img width="400" alt="image" src="https://github.com/kittykrat/HacktheBox/blob/main/Boxes/Silentium/Images/slscan.png" />
+<img width="400" alt="{2074FF7E-6B53-4046-8B02-95854920F783}" src="https://github.com/user-attachments/assets/957b8564-884e-44d4-b735-263c8979ee67" />
+
 
 ```
 RESULTS
