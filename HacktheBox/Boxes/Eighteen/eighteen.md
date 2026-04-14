@@ -1,6 +1,6 @@
 # Eighteen
 
-<img width="100" height="443" alt="image" src="https://github.com/kittykrat/HacktheBox/blob/main/Boxes/Eighteen/Images/etlogo.png" />
+<img width="100" height="443" alt="image" src="https://github.com/kittykrat/crispy-giggle/blob/main/HacktheBox/Boxes/Eighteen/Images/etlogo.png" />
 
 ## Linux - Easy
 
