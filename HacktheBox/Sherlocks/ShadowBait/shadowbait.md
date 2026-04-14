@@ -1,6 +1,6 @@
 # Shadowbait
 
-<img width="100" alt="image" src="https://github.com/ty-bradley/HacktheBox/blob/main/Sherlocks/ShadowBait/Images/sblogo.png" />
+<img width="100" alt="image" src="https://github.com/kittykrat/crispy-giggle/blob/main/HacktheBox/Sherlocks/ShadowBait/Images/sblogo.png" />
 
 ## DFIR - Very Easy
 
