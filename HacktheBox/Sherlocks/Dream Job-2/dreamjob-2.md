@@ -69,7 +69,7 @@ upx -d InternalViewer.exe -o InternalViewer_Unpacked.exe
 strings -a -t x InternalViewer_Unpacked.exe | grep IsDebuggerPresent
 ```
 
-<img width="400" alt="image" src="https://github.com/ty-bradley/HacktheBox/blob/main/Sherlocks/Dream Job-2/Images/dj4.png" />
+<img width="400" alt="image" src="https://github.com/kittykrat/crispy-giggle/blob/main/HacktheBox/Sherlocks/Dream%20Job-2/Images/dj4.png" />
 
 - **Flag for task:**
 ```
@@ -83,7 +83,7 @@ IsDebuggerPresent
 
 Upon visiting the MITRE ATT&CK website, we can see the entry for [**Torisma**](https://attack.mitre.org/software/S0678/). In the description it mentions that it has encrypted its C2 communications using XOR and VEST-32. [Reference](https://www.mcafee.com/blogs/other-blogs/mcafee-labs/operation-north-star-behind-the-scenes/)
 
-<img width="400" alt="image" src="https://github.com/ty-bradley/HacktheBox/blob/main/Sherlocks/Dream Job-2/Images/dj5.png" />
+<img width="400" alt="image" src="https://github.com/kittykrat/crispy-giggle/blob/main/HacktheBox/Sherlocks/Dream%20Job-2/Images/dj5.png" />
 
 >[!NOTE]
 > #### Torisma
@@ -108,7 +108,7 @@ VEST-32
 
 Upon visiting the MITRE ATT&CK website, we can see the entry for [**Torisma**](https://attack.mitre.org/software/S0678/). In the description it mentions that IT has been packed with LZ4 compression. [_Reference_](https://www.mcafee.com/blogs/other-blogs/mcafee-labs/operation-north-star-behind-the-scenes/)
 
-<img width="400" alt="image" src="https://github.com/ty-bradley/HacktheBox/blob/main/Sherlocks/Dream Job-2/Images/dj6.png" />
+<img width="400" alt="image" src="https://github.com/kittykrat/crispy-giggle/blob/main/HacktheBox/Sherlocks/Dream%20Job-2/Images/dj6.png" />
 
 - **Flag for task:**
 ```
@@ -152,7 +152,7 @@ InternalViewer.exe
 
 - We run the full `strings` command and begin searching for any file that ends with `.exe` until we run into a file that sticks out, leading us to `SumatraPDF.exe` as that is not a commonly known file.
 
-<img width="400" alt="image" src="https://github.com/ty-bradley/HacktheBox/blob/main/Sherlocks/Dream Job-2/Images/dj7.png" />
+<img width="400" alt="image" src="https://github.com/kittykrat/crispy-giggle/blob/main/HacktheBox/Sherlocks/Dream%20Job-2/Images/dj7.png" />
 
 ```
 SumatraPDF.exe
@@ -170,11 +170,11 @@ SumatraPDF.exe
 
 [VirusTotal Link](https://www.virustotal.com/gui/file/adce894e3ce69c9822da57196707c7a15acee11319ccc963b84d83c23c3ea802)
 
-<img width="400" alt="image" src="https://github.com/ty-bradley/HacktheBox/blob/main/Sherlocks/Dream Job-2/Images/dj8.png" />
+<img width="400" alt="image" src="https://github.com/kittykrat/crispy-giggle/blob/main/HacktheBox/Sherlocks/Dream%20Job-2/Images/dj8.png" />
 
 From here we click the `Details` tab, and scroll down to see the `First Seen in the Wild` Time:
 
-<img width="400" alt="image" src="https://github.com/ty-bradley/HacktheBox/blob/main/Sherlocks/Dream Job-2/Images/dj9.png" />
+<img width="400" alt="image" src="https://github.com/kittykrat/crispy-giggle/blob/main/HacktheBox/Sherlocks/Dream%20Job-2/Images/dj9.png" />
 
 
 - **Flag for task:**
@@ -189,7 +189,7 @@ From here we click the `Details` tab, and scroll down to see the `First Seen in 
 
 - From VirusTotal, we can stay on the details page and at the top we see:
 
-<img width="400" alt="image" src="https://github.com/ty-bradley/HacktheBox/blob/main/Sherlocks/Dream Job-2/Images/dj10.png" />
+<img width="400" alt="image" src="https://github.com/kittykrat/crispy-giggle/blob/main/HacktheBox/Sherlocks/Dream%20Job-2/Images/dj10.png" />
 
 ```
  Packer: UPX (3.96) [NRV,brute] 
@@ -215,7 +215,7 @@ strings Salary_Lockheed_Martin_job_opportunities_confidential.doc
 
 - From here, it prints out the entire command. We search our terminal with anything ending with `.com`.
 
-<img width="400" alt="image" src="https://github.com/ty-bradley/HacktheBox/blob/main/Sherlocks/Dream Job-2/Images/dj11.png" />
+<img width="400" alt="image" src="https://github.com/kittykrat/crispy-giggle/blob/main/HacktheBox/Sherlocks/Dream%20Job-2/Images/dj11.png" />
 
 - From this, we see the link within the document (de-fanged):
 
@@ -240,7 +240,7 @@ exiftool Salary_Lockheed_Martin_job_opportunities_confidential.doc
 ```
 This gives us a good amount of information about the document, including the author: `Mickey`
 
-<img width="400" alt="image" src="https://github.com/ty-bradley/HacktheBox/blob/main/Sherlocks/Dream Job-2/Images/dj12.png" />
+<img width="400" alt="image" src="https://github.com/kittykrat/crispy-giggle/blob/main/HacktheBox/Sherlocks/Dream%20Job-2/Images/dj12.png" />
 
 - **Flag for task:**
 ```
@@ -254,7 +254,7 @@ Mickey
 
 - In the same command, we can see a few fields down the last person who modified the document: `Challenger`.
 
-<img width="400" alt="image" src="https://github.com/ty-bradley/HacktheBox/blob/main/Sherlocks/Dream Job-2/Images/dj13.png" />
+<img width="400" alt="image" src="https://github.com/kittykrat/crispy-giggle/blob/main/HacktheBox/Sherlocks/Dream%20Job-2/Images/dj13.png" />
 
 - **Flag for task:**
 ```
@@ -362,5 +362,5 @@ wsuser.db
 
 ***
 
-<img width="400" alt="image" src="https://github.com/ty-bradley/HacktheBox/blob/main/Sherlocks/Dream Job-2/Images/djclear.png" />
+<img width="400" alt="image" src="https://github.com/kittykrat/crispy-giggle/blob/main/HacktheBox/Sherlocks/Dream%20Job-2/Images/djclear.png" />
 
