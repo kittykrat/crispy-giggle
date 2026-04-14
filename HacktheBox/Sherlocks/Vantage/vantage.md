@@ -12,7 +12,7 @@
   - `controller.2025-07-01.pcap`
   - `web-server.2025-07-01.pcap`
 
-<img width="400" alt="image" src="https://github.com/ty-bradley/HacktheBox/blob/main/Sherlocks/Vantage/Images/1.png" />
+<img width="400" alt="image" src="https://github.com/kittykrat/crispy-giggle/blob/main/HacktheBox/Sherlocks/Vantage/Images/1.png" />
 
 ***
 
@@ -28,7 +28,7 @@
 User-Agent: Fuzz Faster U Fool v2.1.0-dev\r\n
 ```
 
-<img width="500" alt="image" src="https://github.com/ty-bradley/HacktheBox/blob/main/Sherlocks/Vantage/Images/2.png" />
+<img width="400" alt="image" src="https://github.com/kittykrat/crispy-giggle/blob/main/HacktheBox/Sherlocks/Vantage/Images/2.png" />
 
 - **Flag for task:**
 ```
@@ -47,7 +47,7 @@ http
   - **Requests:** `http.request`
   - **Responses:** `http.response`
 
-<img width="500" alt="image" src="https://github.com/ty-bradley/HacktheBox/blob/main/Sherlocks/Vantage/Images/3.png" />
+<img width="400" alt="image" src="https://github.com/kittykrat/crispy-giggle/blob/main/HacktheBox/Sherlocks/Vantage/Images/3.png" />
 
 
 - The attacker discovers a valid subdomain when a request returns a **200 OK** (or any non-error) status. Filter for successful responses:
@@ -66,7 +66,7 @@ http and http.response.code == 200
 
 - Upon investigation with our filter, choosing a line reveals the `Full request URI`
 
-<img width="500" alt="image" src="https://github.com/ty-bradley/HacktheBox/blob/main/Sherlocks/Vantage/Images/4.png" />
+<img width="400" alt="image" src="https://github.com/kittykrat/crispy-giggle/blob/main/HacktheBox/Sherlocks/Vantage/Images/4.png" />
 
 - The full request URI:
 ```
@@ -94,11 +94,11 @@ http.request.full_uri contains"/login":
 ```
 - From these requests we see a few POST requests.
 
-<img width="500" alt="image" src="https://github.com/ty-bradley/HacktheBox/blob/main/Sherlocks/Vantage/Images/5.png" />
+<img width="400" alt="image" src="https://github.com/kittykrat/crispy-giggle/blob/main/HacktheBox/Sherlocks/Vantage/Images/5.png" />
 
 - Further investigation into these packets reveals a `Form item` for each. We can see the credentials entered within each.
 
-<img width="500" alt="image" src="https://github.com/ty-bradley/HacktheBox/blob/main/Sherlocks/Vantage/Images/6.png" />
+<img width="400" alt="image" src="https://github.com/kittykrat/crispy-giggle/blob/main/HacktheBox/Sherlocks/Vantage/Images/6.png" />
 
 ```
 admin:StrongAdminSecret
@@ -107,7 +107,7 @@ demo:demo
 ```
 - Finally before the user guessed the correct credentials and got redirected to `/Dashboard`
 
-<img width="500" alt="image" src="https://github.com/ty-bradley/HacktheBox/blob/main/Sherlocks/Vantage/Images/7.png" />
+<img width="400" alt="image" src="https://github.com/kittykrat/crispy-giggle/blob/main/HacktheBox/Sherlocks/Vantage/Images/7.png" />
 
 - The correct credentials:
 
@@ -127,7 +127,7 @@ admin:admin
 
 - To being investigation look for http requests that contain "/api":
 
-<img width="500" alt="image" src="https://github.com/ty-bradley/HacktheBox/blob/main/Sherlocks/Vantage/Images/8.png" />
+<img width="400" alt="image" src="https://github.com/kittykrat/crispy-giggle/blob/main/HacktheBox/Sherlocks/Vantage/Images/8.png" />
 
 ```
 http.request.uri contains "/api"
@@ -139,7 +139,7 @@ http.request.uri contains "/api"
 admin-openrc.sh
 ```
 
-<img width="500" alt="image" src="https://github.com/ty-bradley/HacktheBox/blob/main/Sherlocks/Vantage/Images/9.png" />
+<img width="400" alt="image" src="https://github.com/kittykrat/crispy-giggle/blob/main/HacktheBox/Sherlocks/Vantage/Images/9.png" />
 
 - **Flag for task:**
 
@@ -154,7 +154,7 @@ admin-openrc.sh
 - We assume the attacker's IP is `117.200.21.26` and the Controller IP is `157.230.81.229`
 - With this information we move over to the `controller.2025-07-01.pcap` file and jump to the very first result with this filter:
 
-<img width="500" alt="image" src="https://github.com/ty-bradley/HacktheBox/blob/main/Sherlocks/Vantage/Images/10.png" />
+<img width="400" alt="image" src="https://github.com/kittykrat/crispy-giggle/blob/main/HacktheBox/Sherlocks/Vantage/Images/10.png" />
 
 
 ```
@@ -175,7 +175,7 @@ http and ip.src == 117.200.21.26
 - From the previous task since we're already filtering for the attacker's IP on the controller node, we can then filter to check if any URI stem contains `project`.
 - Further investigation reveals the project ID as the other network packets show the user merely navigating folders. The project ID is located within the URI stem.
 
-<img width="500" alt="image" src="https://github.com/ty-bradley/HacktheBox/blob/main/Sherlocks/Vantage/Images/11.png" />
+<img width="400" alt="image" src="https://github.com/kittykrat/crispy-giggle/blob/main/HacktheBox/Sherlocks/Vantage/Images/11.png" />
 
 ```
 Request URI: /identity/v3/projects/9fb84977ff7c4a0baf0d5dbb57e235c7/users/c373da67a62b48f393c45dc071fa80b8/roles/0501401642464242bcd799437b71bdc9
@@ -194,7 +194,7 @@ Request URI: /identity/v3/projects/9fb84977ff7c4a0baf0d5dbb57e235c7/users/c373da
 
 - From the previous task, you can observe within the `User-Agent` tag:
 
-<img width="500" alt="image" src="https://github.com/ty-bradley/HacktheBox/blob/main/Sherlocks/Vantage/Images/12.png" />
+<img width="400" alt="image" src="https://github.com/kittykrat/crispy-giggle/blob/main/HacktheBox/Sherlocks/Vantage/Images/12.png" />
 
 ```
 User-Agent: openstacksdk/4.6.0 keystoneauth1/5.11.1 python-requests/2.32.4 CPython/3.13.5\r\n
@@ -213,7 +213,7 @@ keystone
 
 - We can `control + f` to search the `packet details` field for strings containing the word `swift`. After looking through a few logs on the web server we are able to locate the specific URL containg the swift service:
 
-<img width="500" alt="image" src="https://github.com/ty-bradley/HacktheBox/blob/main/Sherlocks/Vantage/Images/13.png" />
+<img width="400" alt="image" src="https://github.com/kittykrat/crispy-giggle/blob/main/HacktheBox/Sherlocks/Vantage/Images/13.png" />
 
 - We see that the swift endpoint is being used at the URL: `http://134.209.71.220:8080/v1/AUTH_9fb84977ff7c4a0baf0d5dbb57e235c7`
 
@@ -237,7 +237,7 @@ http://134.209.71.220:8080/v1/AUTH_9fb84977ff7c4a0baf0d5dbb57e235c7
 http.request.method == "GET" && http.request.uri contains "/v1/AUTH_"
 ```
 
-<img width="500" alt="image" src="https://github.com/ty-bradley/HacktheBox/blob/main/Sherlocks/Vantage/Images/v14.png" />
+<img width="400" alt="image" src="https://github.com/kittykrat/crispy-giggle/blob/main/HacktheBox/Sherlocks/Vantage/Images/v14.png" />
 
 ```
 GET /v1/AUTH_9fb84977ff7c4a0baf0d5dbb57e235c7?format=json HTTP/1.1\r\n
@@ -245,11 +245,11 @@ GET /v1/AUTH_9fb84977ff7c4a0baf0d5dbb57e235c7?format=json HTTP/1.1\r\n
 
 - We then dig a little deeper into investigation by right-clicking on the packet and clicking `Follow > HTTP stream` to see the full response. The response body will contain a JSON array (or plain text list) of container names.
 
-<img width="500" alt="image" src="https://github.com/ty-bradley/HacktheBox/blob/main/Sherlocks/Vantage/Images/v15.png" />
+<img width="400" alt="image" src="https://github.com/kittykrat/crispy-giggle/blob/main/HacktheBox/Sherlocks/Vantage/Images/v15.png" />
 
 - From here, we see the line we're looking for:
 
-<img width="500" alt="image" src="https://github.com/ty-bradley/HacktheBox/blob/main/Sherlocks/Vantage/Images/v16.png" />
+<img width="400" alt="image" src="https://github.com/kittykrat/crispy-giggle/blob/main/HacktheBox/Sherlocks/Vantage/Images/v16.png" />
 
 ```
 X-Account-Container-Count: 3
@@ -269,7 +269,7 @@ X-Account-Container-Count: 3
 
 - From the last task, we can use the same packets to get our answer, as we see a GET request for:
 
-<img width="500" alt="image" src="https://github.com/ty-bradley/HacktheBox/blob/main/Sherlocks/Vantage/Images/v17.png" />
+<img width="400" alt="image" src="https://github.com/kittykrat/crispy-giggle/blob/main/HacktheBox/Sherlocks/Vantage/Images/v17.png" />
 
 ```
 Request URI: /v1/AUTH_9fb84977ff7c4a0baf0d5dbb57e235c7/user-data/user-details.csv
@@ -289,11 +289,11 @@ Request URI: /v1/AUTH_9fb84977ff7c4a0baf0d5dbb57e235c7/user-data/user-details.cs
 
 - From the previous task, we found the user attempting to download the sensitive user data file. From that, we can follow the HTTP stream:
 
-<img width="500" alt="image" src="https://github.com/ty-bradley/HacktheBox/blob/main/Sherlocks/Vantage/Images/v18.png" />
+<img width="400" alt="image" src="https://github.com/kittykrat/crispy-giggle/blob/main/HacktheBox/Sherlocks/Vantage/Images/v18.png" />
 
 - Which within the response, we see the entire file and the user records in the file listed in order:
 
-<img width="500" alt="image" src="https://github.com/ty-bradley/HacktheBox/blob/main/Sherlocks/Vantage/Images/v19.png" />
+<img width="400" alt="image" src="https://github.com/kittykrat/crispy-giggle/blob/main/HacktheBox/Sherlocks/Vantage/Images/v19.png" />
 
 - Counting, we see **28 user records.**
 
@@ -312,11 +312,11 @@ To find this information, we would examine the controller pcap for a POST reques
 ```
 http.request.method == "POST" && http.request.uri contains "user"
 ```
-<img width="500" alt="image" src="https://github.com/ty-bradley/HacktheBox/blob/main/Sherlocks/Vantage/Images/v20.png" />
+<img width="400" alt="image" src="https://github.com/kittykrat/crispy-giggle/blob/main/HacktheBox/Sherlocks/Vantage/Images/v20.png" />
 
 - Following the HTTP stream, we find a request that gives us more information:
 
-<img width="500" alt="image" src="https://github.com/ty-bradley/HacktheBox/blob/main/Sherlocks/Vantage/Images/v21.png" />
+<img width="400" alt="image" src="https://github.com/kittykrat/crispy-giggle/blob/main/HacktheBox/Sherlocks/Vantage/Images/v21.png" />
 
 - From this we can find that the user created an administrative user named `jellibean`.
 
@@ -332,7 +332,7 @@ jellibean
 
 - From that same request we can also see the password:
 
-<img width="500" alt="image" src="https://github.com/ty-bradley/HacktheBox/blob/main/Sherlocks/Vantage/Images/v22.png" />
+<img width="400" alt="image" src="https://github.com/kittykrat/crispy-giggle/blob/main/HacktheBox/Sherlocks/Vantage/Images/v22.png" />
 
 - User set their passphrase as `P@$$word`.
 
@@ -378,4 +378,4 @@ T1136.003
 
 - This completes the Sherlock!
 
-<img width="500" alt="image" src="https://github.com/ty-bradley/HacktheBox/blob/main/Sherlocks/Vantage/Images/vclear.png" />
+<img width="400" alt="image" src="https://github.com/kittykrat/crispy-giggle/blob/main/HacktheBox/Sherlocks/Vantage/Images/vclear.png" />
