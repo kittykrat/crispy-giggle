@@ -20,7 +20,9 @@ The results from the scan:
 
 
 ```
-RESULTS
+PORT     STATE SERVICE  REASON          VERSION
+80/tcp   open  http     syn-ack         Microsoft IIS httpd 10.0
+1433/tcp open  ms-sql-s syn-ack ttl 127 Microsoft SQL Server 2022 16.00.1000.00; RCO+
 ```
 
 ***
@@ -29,12 +31,12 @@ RESULTS
 
 | PORT       | STATE           | SERVICE  | VERSION  |
 |:-------------:|:-------------:|:-------------:|:-------------:|
-| 22/tcp | open | ssh | OpenSSH 9.6p1 Ubuntu 3ubuntu13.15 |
-| 80/tcp | open | http | nginx 1.24.0 |
+| 80/tcp | open | http | Microsoft IIS httpd 10.0 |
+| 1433/tcp | open | ms-sql-s | Microsoft SQL Server 2022 16.00.1000.00; RCO+ |
 
 - We then add the target IP to /etc/hosts so that we may access it by hostname:
 
-`echo "10.129.xxx.xxx silentium.htb" | sudo tee -a /etc/hosts`
+`echo "10.129.xxx.xxx eighteen.htb" | sudo tee -a /etc/hosts`
 
 ***
 
